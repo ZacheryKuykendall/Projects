@@ -1,0 +1,8 @@
+---
+- name: Install LAMP stack
+  hosts: webserver
+  become: yes
+  roles:
+    - apache
+    - mysql
+    - php
