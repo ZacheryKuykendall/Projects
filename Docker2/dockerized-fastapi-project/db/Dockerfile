@@ -1,0 +1,5 @@
+FROM postgres:13
+
+ENV POSTGRES_DB=bookstore
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=password
