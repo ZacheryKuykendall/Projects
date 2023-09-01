@@ -1,0 +1,21 @@
+---
+- name: Install PHP
+  apt:
+    name: php
+    state: present
+  become: yes
+
+- name: Install PHP extensions
+  apt:
+    name:
+      - php-mysql
+      - php-cli
+      - php-fpm
+      - php-json
+      - php-common
+      - php-mbstring
+      - php-zip
+      - php-gd
+      - php-xml
+    state: present
+  become: yes
