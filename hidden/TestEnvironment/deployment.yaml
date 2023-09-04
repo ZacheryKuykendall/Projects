@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notepad-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notepad
+  template:
+    metadata:
+      labels:
+        app: notepad
+    spec:
+      containers:
+      - name: notepad-container
+        image: 049134394008.dkr.ecr.us-west-2.amazonaws.com/my-notepad-app:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notepad-service
+spec:
+  selector:
+    app: notepad
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer

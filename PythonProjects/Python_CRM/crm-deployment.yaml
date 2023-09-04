@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crm-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crm
+  template:
+    metadata:
+      labels:
+        app: crm
+    spec:
+      containers:
+      - name: crm-container
+        image: zigxi/my-crm-app:latest
+        env:
+        - name: DISPLAY
+          value: "192.168.7.9:0"
