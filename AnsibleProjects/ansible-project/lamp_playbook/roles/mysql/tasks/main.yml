@@ -1,0 +1,21 @@
+---
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+    state: present
+  become: yes
+
+- name: Ensure MySQL service is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+  become: yes
+  notify: Restart MySQL
+
+- name: Secure MySQL installation
+  # In a real-world scenario, use Ansible's `mysql_secure_installation` or equivalent
+  # module or steps to ensure your MySQL installation is secure.
+  # This is just a placeholder to indicate where such steps would go.
+  debug:
+    msg: "Remember to secure MySQL!"
