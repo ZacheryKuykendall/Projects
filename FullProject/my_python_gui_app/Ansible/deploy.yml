@@ -1,0 +1,14 @@
+---
+- name: Deploy AKS using Terraform
+  hosts: localhost
+  tasks:
+    - name: Initialize Terraform
+      command:
+        cmd: terraform init
+        chdir: /mnt/c/Users/Admin/GitHub/new-repo/FullProject/my_python_gui_app/Terraform
+
+    - name: Apply Terraform
+      command:
+        cmd: terraform apply -auto-approve
+        chdir: /mnt/c/Users/Admin/GitHub/new-repo/FullProject/my_python_gui_app/Terraform
+      register: terraform_apply_output
